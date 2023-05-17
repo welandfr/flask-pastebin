@@ -7,7 +7,7 @@ Maybe files in the future.
 ### POST:
 
 ```
-POST {{url}}/pastebin?api_key={{api_key}}
+POST https://{{url}}/pastebin?api_key={{api_key}}
 Content-Type: application/json
 
 { "type": "str", "val": "I pasted this" }
@@ -15,7 +15,7 @@ Content-Type: application/json
 ```
 ### GET (request):
 ```
-GET {{url}}/pastebin?api_key={{api_key}}
+GET https://{{url}}/pastebin?api_key={{api_key}}
 ```
 
 ### GET (response):
@@ -27,5 +27,5 @@ GET {{url}}/pastebin?api_key={{api_key}}
 add `idx` param to get older pastes (latest paste is 0)
 
 ```
-GET {{url}}/pastebin?api_key={{api_key}}&idx=2
+GET https://{{url}}/pastebin?api_key={{api_key}}&idx=2
 ```

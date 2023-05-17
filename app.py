@@ -24,7 +24,7 @@ def test_route():
     if request.method == 'GET':
         try:
             idx = request.args.get('idx') or 0
-            ret = escape(pastebin[int(idx)])
+            ret = { 'type': 'str', 'val': escape(pastebin[int(idx)]) }
         except Exception as e:
             print(repr(e))
             ret = { 'msg': 'ERROR: GET failed' }, 500

@@ -1,19 +1,31 @@
-# Simple Python-Flask REST API demo for use on CSC Rahti
+# Pastebin API (Flask for CSC Rahti)
 
-## 1. On rahti.csc.fi Openshift Web Console:
-- Create python-project on CSC Rahti (use github repo over https)
-- Set any environment variables you need, _Builds/ [your app]/ Environment_
-- When the first build is complete, find the Webhook url (_Builds/ [your app]/ Configuration_)
+API for pasting strings and returning the last (or specified index) string. 
 
-## 2. On Github (setup push-to-deploy)
-- Copy-paste the GitHub Webhook URL from Rahti to the GitHub-repo: _Settings/ Webhooks/ New Webhook_. 
-- Set Webhook Content type to _application/json_
+Maybe files in the future.
 
-### Note
-- Make sure your default branch is named `master` not `main`.
-- Rahti wants your app to listen on port 8080 (can be changed under _Routes_)
-- To run you app over SSL (https) just enable it in you Route (Applications/Routes) by enabling "Secure Route" (you can also set "Insecure Traffic" to _redirect_ or _allow_)
-- The `.devcontainer` folder is a VSCode thing, not needed for Rahti. 
+### POST:
 
+```
+POST {{url}}/pastebin?api_key={{api_key}}
+Content-Type: application/json
 
+{ "type": "str", "val": "I pasted this" }
 
+```
+### GET (request):
+```
+GET {{url}}/pastebin?api_key={{api_key}}
+```
+
+### GET (response):
+```
+{ "type": "str", "val": "I pasted this" }
+```
+
+### Optional GET (request):
+add `idx` param to get older pastes (latest paste is 0)
+
+```
+GET {{url}}/pastebin?api_key={{api_key}}&idx=2
+```

@@ -1,0 +1,19 @@
+
+@url = http://192.168.1.14:8080
+@api_key = {{$dotenv API_KEY}}
+
+###
+POST {{url}}/pastebin?api_key={{api_key}}
+Content-Type: application/json
+
+{ "type": "str", "val": "I pasted this 3" }
+
+###
+POST {{url}}/pastebin?api_key={{api_key}}
+Content-Type: application/json
+
+{ "type": "str", "val": "<script>alert(1)</script>" }
+
+
+###
+GET {{url}}/pastebin?api_key={{api_key}}

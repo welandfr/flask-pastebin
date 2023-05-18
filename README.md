@@ -13,19 +13,31 @@ Content-Type: application/json
 { "type": "str", "val": "I pasted this" }
 
 ```
-### GET (request):
+### GET latest paste (request):
 ```
 GET https://{{url}}/pastebin?api_key={{api_key}}
 ```
 
 ### GET (response):
 ```
-{ "type": "str", "val": "I pasted this" }
+{ "type": "str", "val": "I pasted this", "len": 2 }
 ```
 
-### Optional GET (request):
-add `idx` param to get older pastes (latest paste is 0)
-
+### GET specific paste (request): 
+Latest paste is 0, for example 2:
 ```
-GET https://{{url}}/pastebin?api_key={{api_key}}&idx=2
+GET https://{{url}}/pastebin/2?api_key={{api_key}}
+```
+
+### DELETE all:
+Clear all values
+```
+DELETE https://{{url}}/pastebin?api_key={{api_key}}
+```
+
+
+### DELETE specific:
+Latest paste is 0, for example 2:
+```
+DELETE https://{{url}}/pastebin/2?api_key={{api_key}}
 ```
